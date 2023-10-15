@@ -1,0 +1,89 @@
+html{
+    box-sizing: border-box;
+}
+*,*:before, *:after{
+    box-sizing: inherit;
+}
+.loader1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+}
+.loader1 > div{
+    border: solid 20px red;
+    width: 4rem;
+    height: 4rem;
+    border-top: 5px solid rgb(185, 165, 165) ;
+    border-radius: 50%;
+    animation: spinner 3s linear infinite;
+}
+@keyframes rotator{
+    from{
+        transform:rotate(0)
+    }
+    to{
+        transform: rotate(180deg);
+    }
+}
+.loader2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+}
+.loader2 > div{
+    border: solid 20px red;
+    width: 4rem;
+    height: 4rem;
+    border-top: 5px solid rgb(185, 165, 165) ;
+    border-bottom: 5px solid rgb(185, 165, 165) ;
+    border-radius: 50%;
+    animation: spinner2 3s linear infinite;
+}
+@keyframes spinner2{
+    from{
+        transform:rotate(0)
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.loader3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    height: 5rem;
+}
+.spacer{
+    height: 120px;
+}
+.loader3 div{
+    background-color:red;
+    height:100px;
+    width: 30px;
+}
+.loader3 .first{
+    animation: expender 2s linear infinite;
+}
+.loader3 .second{
+    animation: expender 2s linear infinite;
+    animation-delay: 1s;
+}
+.loader3 .first{
+    animation: expender 2s linear infinite;
+    animation-delay: 2s;
+}
+@keyframes expender{
+    0%{
+        height: 100px;
+    }
+    50%{
+       height: 150px;
+    }
+    100%{
+       height: 100px;
+    }
+
+}

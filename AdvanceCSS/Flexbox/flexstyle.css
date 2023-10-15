@@ -1,0 +1,42 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+#parent {
+    /* flex container */
+    border: solid black 5px;
+    display: flex;
+    height: 500px;
+    /* flex-direction: column; */
+    /* default value of flex is row */
+    justify-content: space-between;    /* some arbitary y will take the space in between elements */
+    justify-content: space-around;    /* will create space around the elements */
+    justify-content: space-evenly;    /* will create even space between both the adjacent elements */
+    align-items: center;    /* flex-wrap: wrap;  */
+    flex-flow: row nowrap;
+    align-items: stretch;
+    flex-wrap: wrap;
+    background: linear-gradient(to bottom, red, black);
+
+}
+
+#parent div {
+    /* flex items */
+    border: solid blue 4px;
+    padding: 20px;
+    max-height: 100px;
+    background-color: rgb(242, 209, 215);
+}
+#child1{
+    flex-grow: 5;
+    text-align: center;
+}
+#child2{
+    flex-grow: 1;
+}

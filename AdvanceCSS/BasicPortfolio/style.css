@@ -1,0 +1,162 @@
+:root {
+    --cream: #ECDBAD;
+    --sage: #C15143;
+    --deepgreen: #4B402A;
+    --taupe: #CCDBB2;
+    --eggshell: #F1FACF;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--eggshell);
+}
+
+#intro {
+    font-size: 1.5rem;
+    color: var(--deepgreen);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.name span {
+    display: block;
+    color: var(--sage);
+    font-size: 4rem;
+}
+
+.profile {
+    padding-bottom: 1rem;
+}
+
+#intro h2 {
+    font-size: 3rem;
+    font-weight: 200;
+}
+#experience ul{
+    max-width: 400px;
+    min-height: 60px;
+    border: solid black 2px;
+    border-radius: 5px;
+    background-color: var(--cream);
+}
+
+#experience li {
+    list-style-type: none;
+    margin: 0 1.5rem;
+}
+
+#experience li a {
+    color: var(--sage);
+}
+
+#hireme {
+    background-color: var(--cream);
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+#hireme p {
+    margin-top: 3rem;
+}
+
+.hire {
+    background-color: var(--cream);
+    
+}
+
+nav {
+    font-size: 80%;
+    padding: 1rem;
+    background-color: var(--taupe);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row-wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-right: 2rem;
+}
+
+nav a {
+    color: var(--deepgreen);
+    text-decoration: none;
+   font-size: 1.2rem;
+    
+}
+
+nav a:hover {
+    color: var(--sage);
+    text-decoration: line-through;
+    font-size: 1.2rem;
+}
+
+nav li:first-child {
+    /* flex-grow: 1; */
+    flex-basis: 100%;
+    font-size: 1.5rem;
+    margin-left: 3rem;
+}
+button{
+    background-color: var(--sage);
+    color: wheat;
+    padding: 7px;
+}
+button:hover{
+    background-color: var(--deepgreen);
+    color: var(--cream);
+}
+.gradient-section{
+    height: 2px;
+    background: var(--deepgreen);
+}
+@media(min-width: 600px){
+    nav li:first-child{
+        flex-grow: 1;
+        flex-basis: auto;
+    }
+}
+footer{
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--taupe);
+}
+.mypic{
+    max-height:400px;
+     max-width: 250px;
+}
+.mypic img{
+width: 100%;
+height: 100%;
+margin: 1rem 0;
+}
+#experience{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap:1rem;
+}
+.exp p{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 800;
+}

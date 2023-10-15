@@ -1,0 +1,26 @@
+/* unless change, every element will follow */
+html {
+    box-sizing: border-box;
+}
+/* We allow the child to follow the parent box sizing */
+*,*:before,*:after {
+    box-sizing: inherit;
+}
+#demo {
+    margin: 5px;
+    width: 200px;
+    border: solid 4px black;
+    padding: 10px;
+}
+#demo2 {
+    margin: 5px;
+    width: 200px;
+    border: solid 4px black;
+    padding: 10px;
+    /* box-sizing: content-box; */
+}
+#demo3 {
+    width: 150px;
+    border: solid 50px blue;
+    padding: 5px;
+}
