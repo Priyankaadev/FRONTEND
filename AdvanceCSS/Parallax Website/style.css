@@ -1,0 +1,58 @@
+html{
+    box-sizing: border-box;
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.first-image, .second-image, .third-image, .forth-image{
+background-position: center;
+background-size: cover;
+background-attachment: fixed;
+
+}
+.first-image{
+    background-image: url(images/city3.jpg);
+    min-height: 500px;
+    opacity: 0.8;
+}
+.second-image{
+    background-image: url(images/city4.jpg);
+    min-height: 850px;
+}
+.third-image{
+    background-image: url(images/city8.jpg);
+    min-height: 750px;
+}
+.forth-image{
+    background-image: url(images/city3.jpg);
+    min-height: 500px;
+    opacity: 0.8;
+}
+section{
+    text-align: center;
+    padding: 3rem 5rem;
+}
+.section-light{
+    background-color: #f4f4f4;
+    color: black;
+}
+.section-dark{
+    background-color: #282e34;
+    color: white;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(221, 255, 0)  ;
+    font-size: 2rem;
+    letter-spacing:1rem;
+    text-transform: uppercase;
+}
+.img:first-child, .forth-text{
+    color: black;
+}
