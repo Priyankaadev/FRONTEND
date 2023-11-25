@@ -1,0 +1,1 @@
+Products.arr[0].getCategory
