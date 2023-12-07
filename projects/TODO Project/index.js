@@ -1,20 +1,22 @@
-console.log("welcome to our todo app");
+console.log("welcome to our todo app"); //checking 
+
+
 let todoDataList = document.getElementById("todo-data-list");
 let saveButton = document.getElementById("save-todo");
 let todoInputBar = document.getElementById("todo-input-bar");
 let todos = [];
-let getPendingTodosButton = document.getElementById( "get-todos"); 
+let getPendingTodosButton = document.getElementById("get-todos");
 
 
-getPendingTodosButton.addEventListener( "click", ( ) =>{
-    todos = todos.filter((todo )=> todo.status != "Finished"  ) ;
-    reRenderTodos( ) 
-}) 
+getPendingTodosButton.addEventListener("click", () => {
+    todos = todos.filter((todo) => todo.status != "Finished");
+    reRenderTodos()
+})
 
 todoInputBar.addEventListener("keydown", function toggleSaveButton() {
     let todotext = todoInputBar.value;
 
-    if (todotext.lenght == 0) {
+    if (todotext.length == 0) {
         if (saveButton.classList.contains('disabled')) return;
         saveButton.classList.add('disabled');
 
@@ -27,7 +29,7 @@ todoInputBar.addEventListener("keydown", function toggleSaveButton() {
 
 saveButton.addEventListener("click", function getTextAndAddTodo() {
     let todotext = todoInputBar.value;
-    if (todotext.lenght == 0) return;
+    if (todotext.length == 0) return;
     let todo = { text: todotext, status: 'In progress', finishButtonText: 'Finished' }
     todos.push(todo);
     addTodo(todo, todos.length);
@@ -39,6 +41,7 @@ function reRenderTodos() {
     todos.forEach((element, idx) => {
         addTodo(element, idx + 1);
     })
+
 }
 
 function removeTodo(event) {
@@ -56,12 +59,16 @@ function finishTodo(event) {
 
     //toggle
     if (todos[indexTodoFinished].status == 'Finished') {
+
         todos[indexTodoFinished].status = 'In progress';
         todos[indexTodoFinished].finishButtonText = 'Finished'
+
+
 
     } else {
         todos[indexTodoFinished].status = "Finished";
         todos[indexTodoFinished].finishButtonText = "Undo";
+
     }
 
     todos.sort((a, b) => {
@@ -70,32 +77,36 @@ function finishTodo(event) {
         }
         return -1;
     })
-    reRenderTodos();
-}
 
-function editTodo(event ){
-let editButtonPressed =event.target;
-let indexTodoEdit = Number(editButtonPressed.getAttribute('todo-idx'));
-let detailDiv = document.querySelector(`div[todo-idx="${indexTodoEdit}"]` );
-let input = document.querySelector(`input[todo-idx="${indexTodoEdit}"]` );
-detailDiv.style.display ='none';
-input.type='text';
-input.value = detailDiv.textContent;
+    reRenderTodos()
 
 }
 
-function saveEdittedTodo(event ){
+function editTodo(event) {
+    let editButtonPressed = event.target;
+    let indexTodoEdit = Number(editButtonPressed.getAttribute('todo-idx'));
+    let detailDiv = document.querySelector(`div[todo-idx="${indexTodoEdit}"]`);
+    let input = document.querySelector(`input[todo-idx="${indexTodoEdit}"]`);
+    detailDiv.style.display = 'none';
+    input.type = 'text';
+    input.value = detailDiv.textContent;
+    
+
+}
+
+function saveEdittedTodo(event) {
     let input = event.target;
 
     let indexTodoEdit = Number(input.getAttribute('todo-idx'));
-   let detailDiv = document.querySelector(`div[todo-idx="${indexTodoEdit}"]` );
-if(event.keyCode ==13 ){
-    detailDiv.textContent = input.value;
-    detailDiv.style.display= "block";
-    input.value = '';
-    input.type = 'hidden';
-} 
-} 
+    let detailDiv = document.querySelector(`div[todo-idx="${indexTodoEdit}"]`);
+    if (event.keyCode == 13) {
+        detailDiv.textContent = input.value;
+        detailDiv.style.display = "block";
+        input.value = detailDiv.textContent;
+        input.type = 'hidden';
+        console.log("saved")
+    }
+}
 
 function addTodo(todo, todoCount) {
     console.log("called successfully");
@@ -104,6 +115,7 @@ function addTodo(todo, todoCount) {
     let todoNumber = document.createElement("div");
     let todoDetail = document.createElement("div");
     let todoStatus = document.createElement("div");
+
     let todoActions = document.createElement("div");
     let deleteButton = document.createElement("button");
     let finishedButton = document.createElement("button");
@@ -117,20 +129,22 @@ function addTodo(todo, todoCount) {
     todoNumber.classList.add("todo-no");
     todoDetail.classList.add("todo-detail", "text-muted");
     todoStatus.classList.add("todo-status", "text-muted");
+
+
     todoActions.classList.add("todo-action", "d-flex", "justify-content-start", "gap-2");
     deleteButton.classList.add('btn', 'btn-danger', 'delete-todo');
     finishedButton.classList.add('btn', 'btn-success', 'finish-todo');
     editButton.classList.add('btn', 'btn-warning', 'edit-todo');
-    hiddenInput.classList.add('form-control',"todo-detail" );
+    hiddenInput.classList.add('form-control', "todo-detail");
 
-//adding attribute
+    //adding attribute
     finishedButton.setAttribute("todo-idx", todoCount - 1);
     deleteButton.onclick = removeTodo;
-    editButton.setAttribute( "todo-idx", todoCount -1)
-    todoDetail.setAttribute( "todo-idx", todoCount -1)
-    hiddenInput.setAttribute( "todo-idx", todoCount -1)
+    editButton.setAttribute("todo-idx", todoCount - 1)
+    todoDetail.setAttribute("todo-idx", todoCount - 1)
+    hiddenInput.setAttribute("todo-idx", todoCount - 1)
     deleteButton.setAttribute("todo-idx", todoCount - 1);
-    hiddenInput.addEventListener( "keypress", saveEdittedTodo) 
+    hiddenInput.addEventListener("keypress", saveEdittedTodo)
     finishedButton.onclick = finishTodo;
     editButton.onclick = editTodo;
     hiddenInput.type = 'hidden';
@@ -139,6 +153,7 @@ function addTodo(todo, todoCount) {
     todoDetail.textContent = todo.text; //sets the todo text sent from the input element
     todoStatus.textContent = todo.status;
     deleteButton.textContent = "Delete";
+
     finishedButton.textContent = todo.finishButtonText;
     editButton.textContent = 'Edit';
 
@@ -149,6 +164,7 @@ function addTodo(todo, todoCount) {
     todoItem.appendChild(todoNumber);
     todoItem.appendChild(todoDetail);
     todoItem.appendChild(hiddenInput);
+
     todoItem.appendChild(todoStatus);
     todoItem.appendChild(todoActions);
 
