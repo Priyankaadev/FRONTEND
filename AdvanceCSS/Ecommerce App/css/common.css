@@ -54,41 +54,7 @@ html {
     text-decoration-line: underline;
 }
 
-.loader-backdrop {
-    background-color: rgb(0, 0, 0, .5);
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.loader2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5rem;
 
 
-}
 
-.loader2>div {
-    border: solid 10px rgb(132, 255, 0);
-    width: 5rem;
-    height: 5rem;
-    border-top: 5px solid rgb(185, 165, 165);
-    border-bottom: 5px solid rgb(185, 165, 165);
-    border-radius: 50%;
-    animation: spinner2 3s linear infinite;
-}
 
-@keyframes spinner2 {
-    from {
-        transform: rotate(0)
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
